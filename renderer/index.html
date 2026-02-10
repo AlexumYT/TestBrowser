@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Chromium Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="controls">
+        <button id="backBtn" title="Back" aria-label="Go back">◀</button>
+        <button id="forwardBtn" title="Forward" aria-label="Go forward">▶</button>
+        <button id="reloadBtn" title="Reload" aria-label="Reload page">⟳</button>
+      </div>
+
+      <form id="addressForm" class="address-form">
+        <input
+          id="addressBar"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Enter a URL or search term"
+        />
+      </form>
+
+      <div class="status" id="status">Ready</div>
+    </header>
+
+    <main class="viewport">
+      <webview
+        id="browserView"
+        src="https://example.com"
+        partition="persist:main"
+        allowpopups
+      ></webview>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
