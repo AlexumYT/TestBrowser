@@ -1,0 +1,12 @@
+{
+  "name": "custom-chromium-browser",
+  "version": "1.0.0",
+  "description": "A simple custom browser shell built with Electron (Chromium) + HTML/CSS/JS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^31.0.2"
+  }
+}

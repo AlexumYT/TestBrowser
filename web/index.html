@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Browser Shell (No Electron)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="controls">
+        <button id="backBtn" title="Back" aria-label="Back">◀</button>
+        <button id="forwardBtn" title="Forward" aria-label="Forward">▶</button>
+        <button id="homeBtn" title="Home" aria-label="Home">⌂</button>
+      </div>
+
+      <form id="addressForm" class="address-form">
+        <input id="addressBar" type="text" placeholder="Enter a URL or search term" autocomplete="off" />
+      </form>
+
+      <div id="status" class="status">Ready</div>
+    </header>
+
+    <main class="viewport">
+      <iframe id="pageFrame" title="Embedded page" src="https://example.com"></iframe>
+      <div class="note" id="frameNote">
+        Some websites block iframe embedding (X-Frame-Options/CSP). If a page is blocked, use the
+        “Open in new tab” button.
+      </div>
+    </main>
+
+    <footer class="footer">
+      <button id="newTabBtn">Open in new tab ↗</button>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
