@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Browser Shell (No Electron)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="controls">
+        <button id="backBtn" title="Back" aria-label="Back">◀</button>
+        <button id="forwardBtn" title="Forward" aria-label="Forward">▶</button>
+        <button id="homeBtn" title="Home" aria-label="Home">⌂</button>
+      </div>
+
+      <form id="addressForm" class="address-form">
+        <input id="addressBar" type="text" placeholder="Enter a URL or search term" autocomplete="off" />
+      </form>
+
+      <label class="mode" for="renderMode">
+        Mode
+        <select id="renderMode">
+          <option value="auto" selected>Auto</option>
+          <option value="iframe">Iframe only</option>
+          <option value="mirror">Mirror only</option>
+        </select>
+      </label>
+
+      <div id="status" class="status">Ready</div>
+    </header>
+
+    <main class="viewport">
+      <iframe id="pageFrame" title="Embedded page" src="https://example.com"></iframe>
+      <div class="note" id="frameNote">
+        If a site blocks iframe loading, Auto mode falls back to a readable mirror view.
+      </div>
+    </main>
+
+    <footer class="footer">
+      <button id="newTabBtn">Open original in new tab ↗</button>
+      <button id="retryMirrorBtn">Retry with mirror</button>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
