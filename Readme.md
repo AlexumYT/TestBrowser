@@ -65,6 +65,19 @@ Then open:
 5. Open your published URL and append `/web/`.
    - Example: `https://<username>.github.io/<repo>/web/`
 
+## Web mode behavior (refused connections fix)
+
+The web mode now includes a **render mode selector**:
+
+- **Auto**: try iframe first, then automatically fall back to mirror mode.
+- **Iframe only**: only try direct embed.
+- **Mirror only**: always use a readable mirror URL (`r.jina.ai`) for blocked pages.
+
+If a page still does not render well, use **Open original in new tab**.
+
+## Important limitation in browser-only mode
+
+A true browser engine cannot be fully recreated in a static webpage because many sites block iframe embedding via `X-Frame-Options`/`CSP`. Mirror mode improves compatibility, but it is a readable proxy view, not full native site rendering.
 ## Important limitation in browser-only mode
 
 Many websites block iframe embedding via `X-Frame-Options`/`CSP`. When that happens, use the **Open in new tab** button.
