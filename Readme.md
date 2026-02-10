@@ -10,6 +10,23 @@ You now have **two modes**:
 Uses Electron (Chromium under the hood).
 
 ### Run
+# Custom Browser (Chromium Base)
+
+This project gives you a **custom browser shell** built with:
+
+- **Electron** (uses Chromium under the hood)
+- **HTML** for layout
+- **CSS** for styling
+- **JavaScript** for browser controls
+
+## Features
+
+- Back / Forward / Reload/Stop buttons
+- Address bar (accepts URL or search terms)
+- Embedded browser tab via `<webview>`
+- Loading status indicator
+
+## Run locally
 
 ```bash
 npm install
@@ -61,6 +78,9 @@ If a page still does not render well, use **Open original in new tab**.
 ## Important limitation in browser-only mode
 
 A true browser engine cannot be fully recreated in a static webpage because many sites block iframe embedding via `X-Frame-Options`/`CSP`. Mirror mode improves compatibility, but it is a readable proxy view, not full native site rendering.
+## Important limitation in browser-only mode
+
+Many websites block iframe embedding via `X-Frame-Options`/`CSP`. When that happens, use the **Open in new tab** button.
 
 ## Project structure
 
@@ -74,3 +94,15 @@ A true browser engine cannot be fully recreated in a static webpage because many
     ├── styles.css
     └── app.js
 ```
+├── main.js                # Electron app entry, creates the Chromium window
+├── preload.js             # Safe bridge for URL normalization
+└── renderer/
+    ├── index.html         # Browser UI
+    ├── styles.css         # UI styling
+    └── renderer.js        # Browser control logic
+```
+
+## Notes
+
+- This is a starter browser; add tabs, bookmarks, history, downloads, etc. as next steps.
+- Because Electron uses Chromium, this is effectively a Chromium-based custom browser app.

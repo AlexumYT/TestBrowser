@@ -23,6 +23,7 @@ body {
 .toolbar {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   gap: 12px;
   align-items: center;
   padding: 10px;
@@ -85,6 +86,10 @@ button:hover { border-color: var(--accent); }
   color: var(--muted);
   font-size: 12px;
   min-width: 180px;
+.status {
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 140px;
   text-align: right;
 }
 
@@ -110,6 +115,11 @@ button:hover { border-color: var(--accent); }
   border-radius: 8px;
   border: 1px solid var(--border);
   background: rgba(2, 6, 23, 0.75);
+  max-width: 560px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(2, 6, 23, 0.7);
   color: var(--muted);
   font-size: 12px;
 }
@@ -124,6 +134,9 @@ button:hover { border-color: var(--accent); }
 
 #newTabBtn,
 #retryMirrorBtn {
+}
+
+#newTabBtn {
   padding: 8px 12px;
   font-size: 14px;
 }

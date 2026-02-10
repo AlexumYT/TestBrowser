@@ -34,12 +34,15 @@
       <iframe id="pageFrame" title="Embedded page" src="https://example.com"></iframe>
       <div class="note" id="frameNote">
         If a site blocks iframe loading, Auto mode falls back to a readable mirror view.
+        Some websites block iframe embedding (X-Frame-Options/CSP). If a page is blocked, use the
+        “Open in new tab” button.
       </div>
     </main>
 
     <footer class="footer">
       <button id="newTabBtn">Open original in new tab ↗</button>
       <button id="retryMirrorBtn">Retry with mirror</button>
+      <button id="newTabBtn">Open in new tab ↗</button>
     </footer>
 
     <script src="app.js"></script>

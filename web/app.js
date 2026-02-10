@@ -1,5 +1,4 @@
 const HOME_URL = 'https://example.com';
-const IFRAME_TIMEOUT_MS = 3500;
 
 const frame = document.getElementById('pageFrame');
 const addressBar = document.getElementById('addressBar');
@@ -90,6 +89,15 @@ function render(url) {
   } else {
     loadIntoFrame(url, 'iframe');
   }
+function render(url) {
+  addressBar.value = url;
+  frame.src = url;
+  status.textContent = 'Loading…';
+
+  // In browser-only mode we cannot inspect iframe failures reliably cross-origin.
+  setTimeout(() => {
+    status.textContent = 'Loaded (or blocked by site policy)';
+  }, 900);
 
   updateButtons();
 }
@@ -136,6 +144,10 @@ newTabBtn.addEventListener('click', () => {
 
 retryMirrorBtn.addEventListener('click', () => {
   loadIntoFrame(currentOriginalUrl, 'mirror');
+});
+
+  const target = normalizeUrl(addressBar.value || historyStack[historyIndex]);
+  window.open(target, '_blank', 'noopener,noreferrer');
 });
 
 render(HOME_URL);
